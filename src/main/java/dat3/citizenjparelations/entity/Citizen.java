@@ -21,6 +21,8 @@ public class Citizen {
   String lastName;
   String email;
   String phone;
+  @ManyToOne
+  Address address;
 
   public Citizen(String firstName, String lastName, String email, String phone) {
     this.firstName = firstName;

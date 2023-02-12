@@ -25,12 +25,20 @@ public class DeveloperData implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
+
     Address a1 = new Address("Lyngbyvej 1", "lyngby", "2800");
+
     Citizen citizen1 = new Citizen("Kurt", "Wonnegut", "a@b.dk", "123");
     Citizen citizen2 = new Citizen("Hanne", "Wonnegut", "h@b.dk", "234");
+
+    citizenRepository.save(citizen1);
+    citizenRepository.save(citizen2);
+
     a1.addCitizen(citizen1);
     a1.addCitizen(citizen2);
 
     addressRepository.save(a1);
+
+
   }
 }
