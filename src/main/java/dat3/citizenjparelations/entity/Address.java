@@ -18,15 +18,11 @@ public class Address {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
-  @Column(nullable = false)
   String street;
-  @Column(nullable = false)
   String zip;
-  @Column(nullable = false)
   String city;
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name = "address_id")
-  List<Citizen> citizens = new ArrayList(); //Skal denne være i constructor?
+  @OneToMany(mappedBy = "address")
+  List<Citizen> citizens = new ArrayList();
 
 
   public Address(String street, String city, String zip) {

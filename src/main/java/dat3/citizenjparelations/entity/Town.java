@@ -17,9 +17,7 @@ public class Town {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
-  @Column(nullable = false)
   String name;
-  @Column(nullable = false)
   String zipCode;
   String mayor;
   //List of schools

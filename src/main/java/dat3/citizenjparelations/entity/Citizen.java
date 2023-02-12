@@ -15,12 +15,12 @@ public class Citizen {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
-  @Column(nullable = false)
   String firstName;
-  @Column(nullable = false)
   String lastName;
   String email;
   String phone;
+  @ManyToOne
+  Address address;
 
   public Citizen(String firstName, String lastName, String email, String phone) {
     this.firstName = firstName;
