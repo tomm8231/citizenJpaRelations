@@ -24,7 +24,8 @@ public class Address {
   String zip;
   @Column(nullable = false)
   String city;
-  @OneToMany
+  @OneToMany(cascade = CascadeType.ALL)
+  @JoinColumn(name = "address_id")
   List<Citizen> citizens = new ArrayList(); //Skal denne være i constructor?
 
 

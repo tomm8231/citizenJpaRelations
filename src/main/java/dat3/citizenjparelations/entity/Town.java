@@ -24,3 +24,4 @@ public class Town {
   String mayor;
   //List of schools
 }
+
