@@ -3,6 +3,9 @@ package dat3.citizenjparelations.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,10 +24,17 @@ public class Address {
   String zip;
   @Column(nullable = false)
   String city;
+  @OneToMany
+  List<Citizen> citizens = new ArrayList(); //Skal denne være i constructor?
 
-  public Address(String street, String zip, String city) {
+
+  public Address(String street, String city, String zip) {
     this.street = street;
     this.zip = zip;
     this.city = city;
+  }
+
+  public void addCitizen(Citizen c) {
+    citizens.add(c);
   }
 }

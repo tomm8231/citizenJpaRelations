@@ -6,7 +6,6 @@ import dat3.citizenjparelations.entity.Town;
 import dat3.citizenjparelations.repository.AddressRepository;
 import dat3.citizenjparelations.repository.CitizenRepository;
 import dat3.citizenjparelations.repository.TownRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +25,12 @@ public class DeveloperData implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
+    Address a1 = new Address("Lyngbyvej 1", "lyngby", "2800");
+    Citizen citizen1 = new Citizen("Kurt", "Wonnegut", "a@b.dk", "123");
+    Citizen citizen2 = new Citizen("Hanne", "Wonnegut", "h@b.dk", "234");
+    a1.addCitizen(citizen1);
+    a1.addCitizen(citizen2);
 
+    addressRepository.save(a1);
   }
 }
