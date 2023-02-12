@@ -9,8 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 
 @Entity
 public class Address {
@@ -21,7 +19,7 @@ public class Address {
   String street;
   String zip;
   String city;
-  @OneToMany(mappedBy = "address")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "address", fetch = FetchType.LAZY)
   List<Citizen> citizens = new ArrayList();
 
 
