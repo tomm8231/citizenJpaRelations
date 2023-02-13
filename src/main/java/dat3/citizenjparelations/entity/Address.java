@@ -9,27 +9,35 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 @Entity
 public class Address {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int id;
+  Integer id;
+
   String street;
   String zip;
   String city;
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "address", fetch = FetchType.LAZY)
-  List<Citizen> citizens = new ArrayList();
 
+  @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  //@JoinColumn(name = "address_id")
+  List<Citizen> citizens;
 
-  public Address(String street, String city, String zip) {
+  public Address(String street, String zip, String city) {
     this.street = street;
     this.zip = zip;
     this.city = city;
   }
 
   public void addCitizen(Citizen c) {
+    if(citizens == null) {
+      citizens = new ArrayList<>();
+    }
     citizens.add(c);
+    c.setAddress(this);
   }
 }

@@ -8,17 +8,25 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-
+@AllArgsConstructor
+@Builder
 
 @Entity
 public class Town {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int id;
+  Integer id;
   String name;
   String zipCode;
   String mayor;
-  //List of schools
+  int schools;
+
+  public Town(String name, String zipCode, String mayor, int schools) {
+    this.name = name;
+    this.zipCode = zipCode;
+    this.mayor = mayor;
+    this.schools = schools;
+  }
 }
 

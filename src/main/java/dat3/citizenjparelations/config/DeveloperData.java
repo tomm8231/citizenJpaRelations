@@ -10,6 +10,7 @@ import dat3.citizenjparelations.service.AddressService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Configuration
 public class DeveloperData implements ApplicationRunner {
@@ -32,11 +33,18 @@ public class DeveloperData implements ApplicationRunner {
     Address a1 = new Address("Lyngbyvej 1", "Lyngby", "2800");
     Citizen citizen1 = new Citizen("Kurt", "Wonnegut", "a@b.dk","123");
     Citizen citizen2 = new Citizen("Hanne", "Wonnegut", "h@b.dk", "234");
+    Town town1 = new Town("Lyngby","2800","Harry", 5);
+
+    citizen1.setTown(town1);
+    citizen2.setTown(town1);
 
     a1.addCitizen(citizen1);
     a1.addCitizen(citizen2);
 
-    addressRepository.save(a1);//Save the address
+    addressRepository.save(a1);
+
+
+
 
 /*
     System.out.println("------- Select statements starts here ------------");
