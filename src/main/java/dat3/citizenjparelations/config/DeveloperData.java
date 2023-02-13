@@ -12,6 +12,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.CipherInputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Configuration
@@ -45,8 +48,11 @@ public class DeveloperData implements ApplicationRunner {
 
     addressRepository.save(a1);
 
+    List<Citizen> citizens = citizenRepository.getAllByTownId(town1.getId());
 
-
+    for (Citizen c: citizens) {
+      System.out.println(c.getFirstName());
+    }
 
 
 /*
