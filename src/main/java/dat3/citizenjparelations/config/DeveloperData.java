@@ -12,6 +12,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Configuration
 public class DeveloperData implements ApplicationRunner {
 
@@ -42,6 +44,7 @@ public class DeveloperData implements ApplicationRunner {
     a1.addCitizen(citizen2);
 
     addressRepository.save(a1);
+
 
 
 
